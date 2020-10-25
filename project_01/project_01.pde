@@ -6,27 +6,27 @@ void setup(){
 }
 
 void draw(){
-  background(205,133,63);
-  strokeWeight(4);
-  line(600,0,600,1200);
-  line(1200,0,1200,1200);
-  line(0,600,1800,600);
-  
+  reset();  
   ellipseMode(CENTER);
-  formation_0();
+  
+  formation_0(); //sets initial board
+  
   if(mouseX <= 600){
     if(mouseY <= 600){
+      // if mouse is inside box 1, make mole 1 dissappear
       formation_1();
     }
   }
   if(mouseX <= 600){
     if(mouseY >= 600){
+      // if mouse is inside box 2, make mole 2 dissappear
       formation_2();
     }
   }
   if (mouseX >= 600){
     if (mouseX <=1200){
       if(mouseY <=600){
+        // if mouse is inside box 3, make mole 3 dissappear
         formation_3();
       }
     }
@@ -34,17 +34,20 @@ void draw(){
   if (mouseX >= 600){
     if (mouseX <=1200){
       if(mouseY >=600){
+        // if mouse is inside box 4, make mole 4 dissappear
         formation_4();
       }
     }
   }
   if(mouseX >= 1200){
     if(mouseY <= 600){
+      // if mouse is inside box 5, make mole 5 dissappear
       formation_5();
     }
   }
   if(mouseX >= 1200){
     if(mouseY >= 600){
+      //if mouse is inside box 6, make mole 6 dissappear
       formation_6();
     }
   }
@@ -52,8 +55,10 @@ void draw(){
   
 }
 
-void reset(){ // redraws background a grid
-  background(205,133,63);
+void reset(){
+  // redraws background a grid
+  background(205,133,63);  
+  //creates 3x2 grid
   strokeWeight(4);
   stroke(160,82,45);
   line(600,0,600,1200);
@@ -61,6 +66,8 @@ void reset(){ // redraws background a grid
   line(0,600,1800,600);
 }
 void mole(int x, int y){
+  //draws mole
+  
   //body
   strokeWeight(4);
   stroke(0);
@@ -89,6 +96,7 @@ void mole(int x, int y){
 }
 
 void hole(int x, int y){
+  // draws hole in the ground
   strokeWeight(4);
   stroke(0);
   fill(0);
@@ -96,6 +104,7 @@ void hole(int x, int y){
 }
 
 void hammer(int x, int y){
+  // draws hammer
   strokeWeight(5);
   stroke(0);
   fill(150);
@@ -113,7 +122,8 @@ void hammer(int x, int y){
   endShape(CLOSE);
 }
 
-void formation_0(){// All six moles
+void formation_0(){
+  // All six moles
   mole(300,300);
   mole(300,900);
   mole(900,300);
@@ -121,7 +131,8 @@ void formation_0(){// All six moles
   mole(1500,300);
   mole(1500,900);
 }
-void formation_1(){// top left mole is gone
+void formation_1(){
+  // top left mole is gone
   reset();
   hole(300,300);
   mole(300,900);
@@ -131,7 +142,8 @@ void formation_1(){// top left mole is gone
   mole(1500,900);
 }
 
-void formation_2(){// bottom left mole is gone
+void formation_2(){
+  // bottom left mole is gone
   reset();
   hole(300,900);
   mole(300,300);
@@ -142,6 +154,7 @@ void formation_2(){// bottom left mole is gone
 }
 
 void formation_3(){
+  // top middle mole is gone
   reset();
   hole(900,300);
   mole(300,300);
@@ -152,6 +165,7 @@ void formation_3(){
 }
 
 void formation_4(){
+  // bottom middle mole is gone
   reset();
   hole(900,900);
   mole(300,300);
@@ -162,6 +176,7 @@ void formation_4(){
 }
 
 void formation_5(){
+  // top right mole is gone
   reset();
   hole(1500,300);
   mole(300,300);
@@ -172,6 +187,7 @@ void formation_5(){
 }
 
 void formation_6(){
+  // bottom right mole is gone
   reset();
   hole(1500,900);
   mole(300,300);
