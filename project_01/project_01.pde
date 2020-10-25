@@ -49,6 +49,7 @@ void draw(){
     }
   }
   hammer(mouseX,mouseY);
+  
 }
 
 void reset(){ // redraws background a grid
@@ -108,8 +109,7 @@ void hammer(int x, int y){
   vertex(x+60,y-175);
   vertex(x+60,y-100);
   vertex(x+10,y-100);
-  vertex(x+10,y);
-  
+  vertex(x+10,y); 
   endShape(CLOSE);
 }
 
