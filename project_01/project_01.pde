@@ -1,8 +1,5 @@
 // unwinnable whack-a-mole-game
 
-float hammer_x = mouseX;
-float hammer_y = mouseY;
-
 void setup(){
   size(1800, 1200);
   
@@ -14,7 +11,6 @@ void draw(){
   line(600,0,600,1200);
   line(1200,0,1200,1200);
   line(0,600,1800,600);
-  
   
   ellipseMode(CENTER);
   formation_0();
@@ -52,7 +48,7 @@ void draw(){
       formation_6();
     }
   }
-  
+  hammer(mouseX,mouseY);
 }
 
 void reset(){ // redraws background a grid
@@ -96,6 +92,25 @@ void hole(int x, int y){
   stroke(0);
   fill(0);
   ellipse(x,y,300,100);
+}
+
+void hammer(int x, int y){
+  strokeWeight(5);
+  stroke(0);
+  fill(150);
+  
+  beginShape();
+  vertex(x,y);
+  vertex(x-10,y);
+  vertex(x-10,y-100);
+  vertex(x-60,y-100);
+  vertex(x-60,y-175);
+  vertex(x+60,y-175);
+  vertex(x+60,y-100);
+  vertex(x+10,y-100);
+  vertex(x+10,y);
+  
+  endShape(CLOSE);
 }
 
 void formation_0(){// All six moles
